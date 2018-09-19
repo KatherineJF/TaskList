@@ -7,8 +7,6 @@ class TasksController < ApplicationController
 end
 
 def show
-  @id = params[:id]
-  @tasks = Task.find do |task|
-    tasks[:id] == id
-  end
+  id = params[:id]
+  @task = Task.find(id)
 end

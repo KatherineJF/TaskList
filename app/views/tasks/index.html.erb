@@ -2,10 +2,11 @@
 <p>Find me in app/views/tasks/index.html.erb</p>
 
 <h1>Tasks</h1>
+<%= link_to "Add Task", new_task_path %> 
 <ul>
   <% @tasks.each do |task|  %>
     <li>
-      <%= link_to task.name, task_path(task.id) %> 
+      <%= link_to task.name, task_path(task.id) %>
     </li>
   <% end %>
 </ul>

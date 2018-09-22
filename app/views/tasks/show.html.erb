@@ -1,1 +1,6 @@
-<h1><%= @task.name %></h1>
+<h1><%= "#{@task.name}"%> <%= "#{@task.description}"%></h1>
+
+<a href=<%="/tasks/#{@task.id}/edit"%>>
+  Edit
+</a>
+<%=link_to "Delete #{@task.id}", delete_task_path(@task.id)%>

@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root 'tasks#index'
   # get '/tasks', to: 'tasks#index'
   # get '/tasks/:id', to: 'tasks#show', as: 'task'
-  get '/tasks/completed', to: 'tasks#completed', as: :completed_tasks
-  put '/tasks/:id/complete', to: 'tasks#complete', as: :complete_tasks
+get 'completed', to: 'tasks#completed', as: :completed_tasks
+put 'complete/:id', to: 'tasks#complete', as: :complete_task
 
 
   resources :tasks

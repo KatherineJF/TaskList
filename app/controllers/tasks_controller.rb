@@ -8,7 +8,7 @@
     def show
       id = params[:id]
       @task = Task.find_by(id:id)
-    
+
     end
 
     def new
@@ -40,16 +40,5 @@
       @deleted_task = task.destroy
       redirect_to root_path
     end
-
-    def completed
-      @tasks = Task.where(complete: false)
-    end
-
-  def complete
-    @task = Task.find(params[:id])
-    @task.update_attribute(:complete, true)
-    flash[:notice] = 'marked task as complete'
-    redirect_to completed_tasks_path
-  end
 
 end

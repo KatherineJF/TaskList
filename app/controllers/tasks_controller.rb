@@ -1,4 +1,6 @@
 
+require 'time'
+
   class TasksController < ApplicationController
 
     def index
@@ -29,8 +31,8 @@
     end
 
     def update
-      @task = Task.find(params[:id])
-      @task.update(name: params[:task][:name], description: params[:task][:description])
+      @task = Task.find(params[:id].to_i)
+      @task.update(name: params[:task][:name], description: params[:task][:description] )
       task_path(@task)
       redirect_to root_path
     end
@@ -38,6 +40,17 @@
     def destroy
       task = Task.find_by(id: params[:id].to_i)
       @deleted_task = task.destroy
+      redirect_to root_path
+    end
+
+    def completed
+      @tasks = Task.where(complete: false)
+    end
+
+    def complete
+      @task = Task.find(params[:id].to_i)
+      @task.update_attribute(:complete, true)
+      @task.update_attribute(:completion_date, Time.now)
       redirect_to root_path
     end
 

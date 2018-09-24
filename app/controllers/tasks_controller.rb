@@ -32,7 +32,8 @@ require 'time'
 
     def update
       @task = Task.find(params[:id].to_i)
-      @task.update(name: params[:task][:name], description: params[:task][:description] )
+      @task.update(name: params[:task][:name], description: params[:task][:description],
+        completion_date: params[:task][:completion_date] )
       task_path(@task)
       redirect_to root_path
     end

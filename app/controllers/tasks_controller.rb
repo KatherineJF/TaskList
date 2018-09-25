@@ -51,7 +51,7 @@ require 'time'
     def complete
       @task = Task.find(params[:id].to_i)
       @task.update_attribute(:complete, true)
-      @task.update_attribute(:completion_date, Time.now)
+      @task.update_attribute(:completion_date = Time.now)
       redirect_to root_path
     end
 

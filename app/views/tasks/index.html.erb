@@ -8,7 +8,7 @@
   <li>
       <%= link_to task.name, task_path(task.id) %>
     </li>
-    <li><%= link_to "Mark as Complete", task_path(task.id), method: :patch %>
+    <li><%= link_to "Mark as Complete", task_path(task.id), method: :update %>
     </li>
   <% end %>
 </ul>

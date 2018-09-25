@@ -5,10 +5,15 @@
 
 <ul>
   <% @tasks.each do |task|  %>
-  <li>
-      <%= link_to task.name, task_path(task.id) %>
-    </li>
-    <li><%= link_to "Mark as Complete", task_path(task.id), method: :patch %>
+  <% if task.completion_date != nil %>
+<li><%= link_to "#{task.name}", task_path(task.id), class: "complete" %></li>
+<%else %>
+<li>
+    <%= link_to task.name, task_path(task.id) %>
+  </li>
+<% end %>
+
+    <li><%= link_to "Mark Complete", complete_task_path(task.id), method: :patch %>
     </li>
   <% end %>
 </ul>

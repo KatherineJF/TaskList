@@ -44,13 +44,9 @@ require 'time'
       redirect_to root_path
     end
 
-    def completed
-      @tasks = Task.where(complete: false)
-    end
 
     def complete
       @task = Task.find(params[:id].to_i)
-      
       @task.update_attribute(:completion_date, Time.now)
       redirect_to root_path
     end

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # get '/tasks/:id', to: 'tasks#show', as: 'task'
 
 
-  patch '/tasks/:id', to: 'tasks#complete', as: 'complete_task'
+  patch 'complete/tasks/:id', to: 'tasks#complete', as: 'complete_task'
 
   resources :tasks
 
